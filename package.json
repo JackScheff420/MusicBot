@@ -1,7 +1,7 @@
 {
   "name": "musicbot",
   "version": "1.0.0",
-  "description": "",
+  "description": "Führe npm init aus, um ein neues Node.js-Projekt zu initialisieren, und befolge die Anweisungen.\r Installiere die benötigten Pakete:\r ```bash\r npm install discord.js\r ```",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -10,15 +10,18 @@
     "type": "git",
     "url": "git+https://github.com/JackScheff420/MusicBot.git"
   },
+  "keywords": [],
   "author": "",
   "license": "ISC",
+  "dependencies": {
+    "discord.js": "^14.12.1",
+    "dotenv": "^16.3.1",
+    "ytdl-core": "^4.11.5"
+  },
   "bugs": {
     "url": "https://github.com/JackScheff420/MusicBot/issues"
   },
-  "homepage": "https://github.com/JackScheff420/MusicBot#readme",
-  "dependencies": {
-    "discord.js": "^14.12.1",
-    "ffmpeg-static": "^5.1.0",
-    "ytdl-core": "^4.11.5"
-  }
+  
+  "type": "module",
+  "homepage": "https://github.com/JackScheff420/MusicBot#readme"
 }
