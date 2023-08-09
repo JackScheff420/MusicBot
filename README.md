@@ -8,3 +8,4 @@ npm init -y
 npm install dotenv
 npm install discord.js
 ```
+Starten mit: node index.js
