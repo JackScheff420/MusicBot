@@ -14,6 +14,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@discordjs/rest": "^2.0.0",
     "discord.js": "^14.12.1",
     "dotenv": "^16.3.1",
     "ytdl-core": "^4.11.5"
@@ -21,7 +22,6 @@
   "bugs": {
     "url": "https://github.com/JackScheff420/MusicBot/issues"
   },
-  
   "type": "module",
   "homepage": "https://github.com/JackScheff420/MusicBot#readme"
 }
