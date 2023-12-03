@@ -14,10 +14,16 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@discordjs/builders": "^1.7.0",
+    "@discordjs/opus": "^0.9.0",
     "@discordjs/rest": "^2.0.0",
+    "@discordjs/voice": "^0.16.0",
+    "discord-api-types": "^0.37.65",
+    "discord-player": "^6.6.6",
     "discord.js": "^14.12.1",
+    "distube": "^4.1.0",
     "dotenv": "^16.3.1",
-    "ytdl-core": "^4.11.5"
+    "libsodium": "^0.7.13"
   },
   "bugs": {
     "url": "https://github.com/JackScheff420/MusicBot/issues"
