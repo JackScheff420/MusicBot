@@ -54,13 +54,22 @@ async function main() {
     const commands = [
         {
             name: 'play',
-            description: 'play a song!'
+            description: 'Play a song!',
+            options: [
+                {
+                    name: 'song',
+                    type: 3, // Update the type to 3 for STRING
+                    description: 'YouTube link of the song to play',
+                    required: true,
+                },
+            ],
         },
         {
             name: 'stop',
-            description: 'stop the current player!'
-        }
+            description: 'Stop the current player!',
+        },
     ];
+    
 
     try {
         console.log('Started refreshing application (/) commands.');

@@ -1,12 +1,20 @@
 const { MessageActionRow, MessageButton } = require('discord.js');
 
 module.exports = {
-  data: {
-    name: 'stop',
-    description: 'Stop the current player!',
-  },
   async execute(interaction) {
-    // Hier die Logik für den Stop-Befehl implementieren
-    interaction.reply({ content: 'Hey there! Stop command executed.', ephemeral: true });
+    try {
+      const client = interaction.client;
+      const queue = client.DisTube.getQueue(interaction.guildId);
+
+      if (queue) {
+        client.DisTube.stop(interaction.guildId);
+        interaction.reply('Playback stopped!');
+      } else {
+        interaction.reply('There is nothing to stop.');
+      }
+    } catch (error) {
+      console.error(error);
+      interaction.reply({ content: 'Error during execution. Unable to stop playback.', ephemeral: true });
+    }
   },
 };
