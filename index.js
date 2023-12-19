@@ -31,16 +31,24 @@ client.on('ready', () => {
     console.log(`${client.user.tag} has logged in!`);
 });
 
-client.on('interactionCreate', (interaction) => {
-    if (interaction.commandName == 'play') {
-        interaction.reply({ content: 'Hey there!!' + interaction.options });
+client.on('interactionCreate', async (interaction) => {
+    if (!interaction.isCommand()) return;
 
-    }
-    if (interaction.commandName == 'stop') {
-        interaction.reply({ content: 'stopping!!' + interaction.options });
+    const { commandName } = interaction;
 
+    try {
+        if (commandName === 'play') {
+            const playCommand = await import('./commands/play.cjs');
+            await playCommand.default.execute(interaction);
+        } else if (commandName === 'stop') {
+            const stopCommand = await import('./commands/stop.cjs');
+            await stopCommand.default.execute(interaction);
+        }
+    } catch (error) {
+        console.error(error);
+        return interaction.reply({ content: 'There was an error while executing this command!', ephemeral: true });
     }
-})
+});
 
 async function main() {
     const commands = [
@@ -60,7 +68,7 @@ async function main() {
             body: commands,
         });
         client.login(TOKEN);
-    } catch (err) { 
+    } catch (err) {
         console.log(err);
     }
 }
