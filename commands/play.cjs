@@ -27,7 +27,8 @@ module.exports = {
       players.set(interaction.guild.id, player);
 
       const song = interaction.options.getString('song');
-      const stream = ytdl(song, { filter: 'audioonly' });
+      console.log(`Now playing: ${song}`);
+      const stream = ytdl(song, { filter: 'audioonly', highWaterMark: 1 << 25 });
       const resource = createAudioResource(stream);
 
       player.play(resource);
@@ -35,7 +36,7 @@ module.exports = {
 
       connection.subscribe(player);
 
-      interaction.reply({ content: `Now playing: ${song}`, ephemeral: true });
+      interaction.reply({ content: `Now playing: ${song}`, ephemeral: false });
     } catch (error) {
       console.error(error);
       interaction.reply({ content: 'Error during execution. Unable to play the specified song.', ephemeral: true });
