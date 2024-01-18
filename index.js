@@ -40,10 +40,13 @@ client.on('interactionCreate', async (interaction) => {
         if (commandName === 'play') {
             const playCommand = await import('./commands/play.cjs');
             await playCommand.default.execute(interaction);
-        } else if (commandName === 'stop') {
-            const stopCommand = await import('./commands/stop.cjs');
-            await stopCommand.default.execute(interaction);
-        }
+        } else if (commandName === 'pause') {
+            const pauseCommand = await import('./commands/pause.cjs');
+            await pauseCommand.default.execute(interaction);
+        } else if (commandName === 'leave') {
+            const leaveCommand = await import('./commands/leave.cjs');
+            await leaveCommand.default.execute(interaction);
+          }
     } catch (error) {
         console.error(error);
         return interaction.reply({ content: 'There was an error while executing this command!', ephemeral: true });
@@ -65,8 +68,12 @@ async function main() {
             ],
         },
         {
-            name: 'stop',
-            description: 'Stop the current player!',
+            name: 'pause',
+            description: 'Pause the current player!',
+        },
+        {
+            name: 'leave',
+            description: 'Leave!!!',
         },
     ];
     
